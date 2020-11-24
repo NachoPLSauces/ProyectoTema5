@@ -27,7 +27,7 @@
 					</div>
 					
 					<div>
-						<a href="../indexProyectoDWES.php">DWES</a>
+                                            <a href="../proyectoDWES/indexProyectoDWES.php">DWES</a>
 					</div>
 					
 					<div>
@@ -60,15 +60,15 @@
                             
                             <tr>
                                 <td>0.Mostrar el contenido de las variables superglobales y phpinfo().</td>
-                                <td><a href="#">Ejecutar</a></td>
-                                <td><a href="#">Inspeccionar</a></td>
+                                <td><a href="./codigoPHP/ejercicio00.php">Ejecutar</a></td>
+                                <td><a href="./mostrarcodigo/muestraEjercicio00.php">Inspeccionar</a></td>
                                 <td><a href="#">Ejecutar</a></td>
                                 <td><a href="#">Inspeccionar</a></td>
                             </tr>
                             
                             <tr>
                                 <td>1.Desarrollo de un control de acceso con identificación del usuario basado en la función header().</td>
-                                <td><a href="#">Ejecutar</a></td>
+                                <td><a href="./codigoPHP/ejercicio01.php">Ejecutar</a></td>
                                 <td><a href="#">Inspeccionar</a></td>
                                 <td><a href="#">Ejecutar</a></td>
                                 <td><a href="#">Inspeccionar</a></td>
