@@ -1,68 +1,141 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Ejercicios Tema 3</title>
+        <title>Ejercicios Tema 5</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            h2{
+                text-align: center;
+                margin: 1em;
+            }
+            
+            table{
+                border-collapse: collapse;
+                border: 0;
+                width: 934px;
+                box-shadow: 1px 2px 3px #ccc; 
+                color: #222;
+                font-family: sans-serif;
+                margin: 1em auto;
+                text-align: left;
+            }
+            td, th {
+                border: 1px solid #666;
+                font-size: 75%;
+                vertical-align: baseline;
+                padding: 4px 5px;
+            }
+            tr th{
+                background-color: #99c;
+                font-weight: bold;
+                text-align: center;
+                position: static;
+            }
+            td{
+                background-color: #ddd;
+                max-width: 300px;
+                overflow-x: auto;
+                word-wrap: break-word;
+            }
+            tr td:first-of-type{
+                background-color: #ccf;
+                width: 300px;
+                font-weight: bold;
+            }
+        </style>
     </head>
     
     <body>
-        <p>
+        <?php
+            /*
+             * @author: Nacho del Prado Losada
+             * @since: 25/11/2020
+             * Ejercicio: 0.Mostrar el contenido de las variables superglobales y phpinfo().
+             */
+
+        ?>
+
+        <h2>Variables superglobales</h2>
+        <table>
+            <tr>
+                <th colspan="2">Contenido de \$_COOKIE</th>
+            </tr>
             <?php
-                /*
-                 * @author: Nacho del Prado Losada
-                 * @since: 24/11/2020
-                 * Ejercicio: 0.Mostrar el contenido de las variables superglobales y phpinfo().
-                 */
-                echo "<h2>Variables superglobales</h2>";
-                
-                /* Mostrar contenido de las variables superglobales */
-                echo "<h3>Contenido de \$_COOKIE</h3><p>";
-                foreach ($_COOKIE as $clave => $valor){
-                    print_r($clave . ": " . $valor . "<br>");
-                }
-                
-                echo "<h3>Contenido de \$_ENV</h3><p>";
-                foreach ($_ENV as $clave => $valor){
-                    print_r($clave . ": " . $valor . "<br>");
-                }
-                
-                echo "<h3>Contenido de \$_FILES</h3><p>";
-                foreach ($_FILES as $clave => $valor){
-                    print_r($clave . ": " . $valor . "<br>");
-                }
-                
-                echo "<h3>Contenido de \$_GET</h3><p>";
-                foreach ($_GET as $clave => $valor){
-                    print_r($clave . ": " . $valor . "<br>");
-                }
-                
-                echo "<h3>Contenido de \$_POST</h3><p>";
-                foreach ($_POST as $clave => $valor){
-                    print_r($clave . ": " . $valor . "<br>");
-                }
-                echo "<h3>Contenido de \$_REQUEST</h3><p>";
-                foreach ($_REQUEST as $clave => $valor){
-                    print_r($clave . ": " . $valor . "<br>");
-                }
-                
-                echo "<h3>Contenido de \$_SERVER</h3><p>";
-                foreach ($_SERVER as $clave => $valor){
-                    print_r($clave . ": " . $valor . "<br>");
-                }
-                
-                echo "<h3>Contenido de \$_SESSION</h3><p>";
-                if(isset($_SESSION['PHP_AUTH_USER'])){
-                    foreach ($_SESSION as $clave => $valor){
-                        print_r($clave . ": " . $valor . "<br>");
-                    }
-                }
-                
-                echo "<br><h2>phpinfo()</h2>";
-                phpinfo();
-                
+            foreach ($_COOKIE as $clave => $valor){
+            print_r("<tr><td>".$clave . "</td><td>" . $valor . "</td></tr>");
+            }
             ?>
-        </p>
+            
+            <tr>
+                <th colspan="2">Contenido de \$_ENV</th>
+            </tr>
+            <?php
+            foreach ($_ENV as $clave => $valor){
+                print_r("<tr><td>".$clave . "</td><td>" . $valor . "</td></tr>");
+            }
+            ?>
+            
+            <tr>
+                <th colspan="2">Contenido de \$_FILES</th>
+            </tr>
+            <?php
+            foreach ($_FILES as $clave => $valor){
+                print_r("<tr><td>".$clave . "</td><td>" . $valor . "</td></tr>");
+            }
+            ?>
+            
+            <tr>
+                <th colspan="2">Contenido de \$_GET</th>
+            </tr>
+            <?php
+            foreach ($_GET as $clave => $valor){
+                print_r("<tr><td>".$clave . "</td><td>" . $valor . "</td></tr>");
+            }
+            ?>
+            
+            <tr>
+                <th colspan="2">Contenido de \$_POST</th>
+            </tr>
+            <?php
+            foreach ($_POST as $clave => $valor){
+                print_r("<tr><td>".$clave . "</td><td>" . $valor . "</td></tr>");
+            }
+            ?>
+            
+            <tr>
+                <th colspan="2">Contenido de \$_REQUEST</th>
+            </tr>
+            <?php
+            foreach ($_REQUEST as $clave => $valor){
+                print_r("<tr><td>".$clave . "</td><td>" . $valor . "</td></tr>");
+            }
+            ?>
+            
+            <tr>
+                <th colspan="2">Contenido de \$_SERVER</th>
+            </tr>
+            <?php
+            foreach ($_SERVER as $clave => $valor){
+                print_r("<tr><td>".$clave . "</td><td>" . $valor . "</td></tr>");
+            }
+            ?>
+            
+            <tr>
+                <th colspan="2">Contenido de \$_SESSION</th>
+            </tr>
+            <?php
+            if(!empty($_SESSION)){
+                foreach ($_SESSION as $clave => $valor){
+                    print_r("<tr><td>".$clave . "</td><td>" . $valor . "</td></tr>");
+                }
+            }
+            ?>
+        </table>
+        <br>
+        <?php
+            phpinfo();
+        ?>
     </body>
 </html>
 

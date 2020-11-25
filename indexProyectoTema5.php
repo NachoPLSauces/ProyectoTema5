@@ -55,29 +55,22 @@
                             <tr>
                                 <th><br>EJERCICIO</th>
                                 <th colspan="2"><br>PDO</th>
-                                <th colspan="2"><br>SQLI</th>
                             </tr>
                             
                             <tr>
                                 <td>0.Mostrar el contenido de las variables superglobales y phpinfo().</td>
                                 <td><a href="./codigoPHP/ejercicio00.php">Ejecutar</a></td>
                                 <td><a href="./mostrarcodigo/muestraEjercicio00.php">Inspeccionar</a></td>
-                                <td><a href="#">Ejecutar</a></td>
-                                <td><a href="#">Inspeccionar</a></td>
                             </tr>
                             
                             <tr>
                                 <td>1.Desarrollo de un control de acceso con identificación del usuario basado en la función header().</td>
                                 <td><a href="./codigoPHP/ejercicio01.php">Ejecutar</a></td>
-                                <td><a href="#">Inspeccionar</a></td>
-                                <td><a href="#">Ejecutar</a></td>
-                                <td><a href="#">Inspeccionar</a></td>
+                                <td><a href="./mostrarcodigo/muestraEjercicio01.php">Inspeccionar</a></td>
                             </tr>
                             
                             <tr>
                                 <td>2.Desarrollo de un control de acceso con identificación del usuario basado en la función header() y en el uso de una tabla “Usuario” de la base de datos. (PDO).</td>
-                                <td><a href="#">Ejecutar</a></td>
-                                <td><a href="#">Inspeccionar</a></td>
                                 <td><a href="#">Ejecutar</a></td>
                                 <td><a href="#">Inspeccionar</a></td>
                             </tr>
