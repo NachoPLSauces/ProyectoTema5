@@ -4,4 +4,4 @@ DROP DATABASE DAW202DBProyectoTema5;
 
 -- Borrar usuario usuarioDAW202DBDepartamentos
 
-DROP USER adminsql;
+DROP USER usuarioDAW202DBProyectoTema5;

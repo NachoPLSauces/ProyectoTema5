@@ -17,10 +17,16 @@ else{
     //Llamada al fichero de almacenamiento de consantes en PDO
     require_once '../config/confDBPDO.php';
 
-    //Variable que indica si la transacción se ha realizado correctamente
-    $transaccionOK = true;
+    /*try{
+        //Instanciar un objeto PDO y establecer la conexión con la base de datos
+        $miDB = new PDO(DSN, USER, PASSWORD);
+
+        //Establecer PDO::ERRMODE_EXCEPTION como valor del atributo PDO::ATTR_ERRMODE
+        $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    
+        //Almaceno la consulta a sql en una variable
+        $sql = "SELECT usuario FROM usuarios WHERE usuario={$_SERVER['PHP_AUTH_USER']} AND contrasena="
+    */
 ?>
 
 <!DOCTYPE html>
