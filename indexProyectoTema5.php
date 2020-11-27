@@ -45,34 +45,33 @@
                     <div class="contenido">
                         <table> 
                             <tr>
-                                <td><a href="#">Scripts de creación base de datos</a></td>
+                                <td><a class="aText" href="#">Scripts de creación base de datos</a></td>
                             </tr>
                             
                             <tr>
-                                <td><a href="mostrarcodigo/muestraConfDBPDO.php">Constantes PDO</a></td>
+                                <td><a class="aText" href="mostrarcodigo/muestraConfDBPDO.php">Constantes PDO</a></td>
                             </tr>
                             
                             <tr>
                                 <th><br>EJERCICIO</th>
-                                <th colspan="2"><br>PDO</th>
                             </tr>
                             
                             <tr>
-                                <td>0.Mostrar el contenido de las variables superglobales y phpinfo().</td>
-                                <td><a href="./codigoPHP/ejercicio00.php">Ejecutar</a></td>
-                                <td><a href="./mostrarcodigo/muestraEjercicio00.php">Inspeccionar</a></td>
+                                <td><p>0.Mostrar el contenido de las variables superglobales y phpinfo().</p></td>
+                                <td><a href="./codigoPHP/ejercicio00.php"><img src="doc/execute-icon.png" alt="Ejecutar"></a></td>
+                                <td><a href="./mostrarcodigo/muestraEjercicio00.php"><img src="doc/inspect-icon.png" alt="Inspeccionar"></a></td>
                             </tr>
                             
                             <tr>
-                                <td>1.Desarrollo de un control de acceso con identificación del usuario basado en la función header().</td>
-                                <td><a href="./codigoPHP/ejercicio01.php">Ejecutar</a></td>
-                                <td><a href="./mostrarcodigo/muestraEjercicio01.php">Inspeccionar</a></td>
+                                <td><p>1.Desarrollo de un control de acceso con identificación del usuario basado en la función header().</p></td>
+                                <td><a href="./codigoPHP/ejercicio01.php"><img src="doc/execute-icon.png" alt="Ejecutar"></a></td>
+                                <td><a href="./mostrarcodigo/muestraEjercicio01.php"><img src="doc/inspect-icon.png" alt="Inspeccionar"></a></td>
                             </tr>
                             
                             <tr>
-                                <td>2.Desarrollo de un control de acceso con identificación del usuario basado en la función header() y en el uso de una tabla “Usuario” de la base de datos. (PDO).</td>
-                                <td><a href="#">Ejecutar</a></td>
-                                <td><a href="#">Inspeccionar</a></td>
+                                <td><p>2.Desarrollo de un control de acceso con identificación del usuario basado en la función header() y en el uso de una tabla “Usuario” de la base de datos. (PDO).</p></td>
+                                <td><a href="#"><img src="doc/execute-icon.png" alt="Ejecutar"></a></td>
+                                <td><a href="#"><img src="doc/inspect-icon.png" alt="Inspeccionar"></a></td>
                             </tr>
                         </table>
                     </div>
@@ -80,10 +79,15 @@
                     <br>
 		</main>
 		
-            <footer style="position: inherit">
-			<div>
-				<h3>2020-2021 - Nacho del Prado Losada - ignacio.pralos@educa.jcyl.es</h3>
-			</div>
-		</footer>
+            <footer>
+                    <div class="enlaces">
+                        <a href="https://github.com/NachoPLSauces" target="_blank"><img src="doc/github-icon.png" alt="github"></a>
+                        <a href="http://daw202.ieslossauces.es/" target="_blank"><img src="doc/1and1-icon.png" alt="github"></a>
+                    </div>
+                    <div class="nombre">
+                        <h3>Nacho del Prado Losada</h3>
+                        <h3>ignacio.pralos@educa.jcyl.es</h3>
+                    </div>
+            </footer>
 	</body>
 </html>

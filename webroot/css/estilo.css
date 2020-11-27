@@ -1,21 +1,20 @@
 * {
 	box-sizing: border-box;
-	
+	margin: 0;
+        padding: 0;
 }
 
 body {
+        height: 100vh;
+        position: relative;
 	margin: 0px;
 	font-family: Arial;
-        height: box;
 }
 
 /* Header */
 header {
 	padding: 16px 40px;
-	width: 100%;
-	margin: 0;
-	
-	
+	width: 100%;height: 12%;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
@@ -76,28 +75,11 @@ nav a:hover {
     border-bottom: 3px solid black;    
 }
 
-/* Footer */
-footer {
-	width: 100%;
-	margin: 0;
-        padding: 10px;
-	background-color: #191919;
-	color: #fff;
-	text-align: center;
-        
-        margin-top: 20px;
-}
-
 /* Main */
-/* main * {
-    border: 1px solid black;
-    margin: 1px;
-} */
-
-.presentacion {
-    width: 100%;
-    text-align: center;
-    padding: 100px;
+main{
+    height: 78%;
+    border: 1px solid transparent;
+    background-color: #e4e4e4;
 }
 
 .contenido {
@@ -106,14 +88,95 @@ footer {
     
 }
 
-td {
-    padding: 10px ;
-    
-    background-color: gainsboro;
-    border-radius: 4px;
+table{
+    border-right: 0;
 }
-
+tr td {
+    transition-duration: .8s;
+    transition-timing-function: ease-out;
+    background-color: white;
+    height: 51px;
+    color: #333; 
+}
+tr:hover td:first-of-type{
+    background-color: #2ECC71;
+    transition-duration: 1s;
+}
+tr:hover td a, tr:hover td p{
+    color: white;
+    transition-duration: .3s;
+}
+td p{
+    padding: 10px;
+    font-family: "Lato",sans-serif;
+    font-size: 18px;
+    color: #333;
+}
+td a{
+    display: table-cell;
+    vertical-align: middle;
+    width: 60px;height: 51px;
+    text-align: center;
+}
+td a img{
+    height: 40px;
+}
 th {
     text-align: left;
+    padding-bottom: 8px;
 }
+.aText{
+    padding: 10px 0;
+    padding-left: 10px;
+    font-family: "Lato",sans-serif;
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+    display: inline;
+}
+
+/* Footer */
+footer {
+        display: flex;
+	flex-flow: row nowrap;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+        height: 10%;
+	background-color: #191919;
+	color: #fff;
+	
+	
+}
+.enlaces{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: 40px;
+    vertical-align: middle;
+}
+.enlaces *{
+    height: 40px;
+}
+.enlaces a{
+    margin-right: 40px;
+}
+.nombre{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    margin-right: 40px;
+}
+.nombre h3{
+    height: 100%;
+    line-height: 100%;
+    margin-left: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+
 
