@@ -2,7 +2,8 @@
 
 CREATE DATABASE IF NOT EXISTS DAW202DBProyectoTema5;
 
-CREATE USER IF NOT EXISTS 'usuarioDAW202DBProyectoTema5'@'%' identified BY 'paso';
+CREATE USER IF NOT EXISTS 'usuarioDAW202DBProyectoTema5'@'%' identified BY 'P@ssw0rd';
+GRANT ALL PRIVILEGES ON DAW202DBProyectoTema5.* TO 'usuarioDAW202DBProyectoTema5'@'%';
 
 USE DAW202DBProyectoTema5;
 
@@ -31,4 +32,3 @@ CREATE TABLE IF NOT EXISTS Usuario (
 
 -- Dar permisos al usuario usuarioDAWDBDepartamentos
 
-GRANT ALL PRIVILEGES ON DAW202DBProyectoTema5.* TO 'usuarioDAW202DBProyectoTema5'@'%';
