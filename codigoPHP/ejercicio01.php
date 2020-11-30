@@ -1,7 +1,7 @@
 <?php
 /*
  * @author: Nacho del Prado Losada
- * @since: 25/11/2020
+ * @since: 29/11/2020
  * Ejercicio: 1.Desarrollo de un control de acceso con identificación del usuario basado en la función header().
  */
 
@@ -12,7 +12,8 @@ if ($_SERVER['PHP_AUTH_USER']!='admin' || $_SERVER['PHP_AUTH_PW']!='admin') {
     echo "Usuario no reconocido!";
     exit;
 }
-
+//Si se han introducido correctamente las creedenciales, se muestra la página
+else{
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +29,11 @@ if ($_SERVER['PHP_AUTH_USER']!='admin' || $_SERVER['PHP_AUTH_PW']!='admin') {
         <?php
         echo 'Nombre de usuario: '.$_SERVER['PHP_AUTH_USER']."<br>";
         echo 'Contraseña: '.$_SERVER['PHP_AUTH_PW']."<br>";
+        header("Location: programa.php");
         ?>        
     </body>
 </html>
 
+<?php
+}
+?>
