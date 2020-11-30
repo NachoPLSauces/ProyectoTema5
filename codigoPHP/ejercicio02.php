@@ -1,7 +1,7 @@
 <?php
 /*
  * @author: Nacho del Prado Losada
- * @since: 25/11/2020
+ * @since: 30/11/2020
  * Ejercicio: 2.Desarrollo de un control de acceso con identificación del usuario basado en la función header() y en el uso de una tabla “Usuario” de la base de datos. (PDO).
  */
 
