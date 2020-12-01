@@ -7,11 +7,13 @@
 
 //Llamada al fichero de almacenamiento de consantes en PDO
 require_once '../config/confDBPDO.php';
+$error = "";
 
 //Comprobamos si se ha enviado el formulario
 if(isset($_REQUEST['enviar'])){
     $usuario = $_REQUEST['usuario'];
     $password = $_REQUEST['password'];
+    
     
     if($usuario == null || $password == null){
         $error = "Debes introducir un usuario y una contraseña";
@@ -23,28 +25,29 @@ if(isset($_REQUEST['enviar'])){
             //Establecer PDO::ERRMODE_EXCEPTION como valor del atributo PDO::ATTR_ERRMODE
             $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             
+            //Almaceno la consulta a sql en una variable
+            $sql = "SELECT CodUsuario, Password FROM Usuario WHERE CodUsuario=:CodUsuario AND Password=:Password";
+            //Ejecuto la consulta
+            $consulta = $miDB->prepare($sql);
+            $consulta->bindParam(":CodUsuario", $usuario);
+
+            $passwordCodificado = hash("sha256", $usuario.$password);
+            $consulta->bindParam(":Password", $passwordCodificado);
+            $consulta->execute();
+
+            $registro = $consulta->fetchObject();
+            if($registro != null){
+                session_start();
+                $_SESSION['usuario'] = $usuario;
+                header("Location: programa.php");
+                exit;
+            }
+            else{
+                //Si las creedenciales no son válidas se vuelven a pedir
+                $error = "Usuario o contraseña incorrectos";
+            }
         } catch (PDOException $pdoe){
             echo "<p style='color: red'>ERROR: " . $pdoe->getMessage() . "</p>";
-        }
-        
-        //Almaceno la consulta a sql en una variable
-        $sql = "SELECT CodUsuario, Password FROM usuarios WHERE CodUsuario=':CodUsuario' AND Password=':Password'";
-        //Ejecuto la consulta
-        $consulta = $miDB->prepare($sql);
-        $consulta->bindParam(":CodUsuario", $usuario);
-        $consulta->bindParam(":Password", $usuario.hash("sha256", $password));
-        $consulta->execute();
-        
-        $registro = $consulta->fetchObject();
-        if($registro != null){
-            session_start();
-            $_SESSION['usuario'] = $usuario;
-            header("Location: programa.php");
-            exit;
-        }
-        else{
-            //Si las creedenciales no son válidas se vuelven a pedir
-            $error = "Usuario o contraseña incorrectos";
         }
         unset($miDB);
     }
@@ -69,10 +72,10 @@ if(isset($_REQUEST['enviar'])){
                 
                 <div>
                     <label for='usuario'>Usuario:</label><br/>
-                    <input type='text' name='usuario'/><br/>
+                    <input type='text' id='usuario' name='usuario'/><br/>
                 
                     <label for='password' >Contraseña:</label><br/>
-                    <input type='password' name='password'/><br/>
+                    <input type='password' id="password" name='password'/><br/>
                 
                     <input type='submit' name='enviar' value='Enviar' />
                 </div>
