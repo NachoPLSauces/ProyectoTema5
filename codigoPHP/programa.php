@@ -5,6 +5,15 @@
  * Página a mostrar si el usuario se identifica correctamente en el ejercicio01
  */
 
+// Recuperamos la información de la sesión
+session_start();
+
+//Si no ha introducido unas creedenciales validas no se muestra la página
+//Se comprueba que el usuario se haya autentificado
+if (!isset($_SESSION['usuario'])) {
+    die("Error: debe <a href='ejercicio02.php'>identificarse</a>.<br />");
+}
+
 //Si pulsa el botón Salir se le dirige al índice del Tema 5
 //Si pulsa el botón Detalle se le dirige al ejercicio00
 if (isset($_REQUEST['salir'])) {
