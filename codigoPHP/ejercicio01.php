@@ -13,7 +13,7 @@ if ($_SERVER['PHP_AUTH_USER']!='admin' || $_SERVER['PHP_AUTH_PW']!='admin') {
     exit;
 }
 //Si se han introducido correctamente las creedenciales, se muestra la página
-else{
+
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +33,3 @@ else{
         ?>        
     </body>
 </html>
-
-<?php
-}
-?>
