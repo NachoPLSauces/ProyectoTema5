@@ -70,8 +70,8 @@
                             
                             <tr>
                                 <td><p>2.Desarrollo de un control de acceso con identificación del usuario basado en la función header() y en el uso de una tabla “Usuario” de la base de datos. (PDO).</p></td>
-                                <td><a href="#"><img src="doc/execute-icon.png" alt="Ejecutar"></a></td>
-                                <td><a href="#"><img src="doc/inspect-icon.png" alt="Inspeccionar"></a></td>
+                                <td><a href="./codigoPHP/ejercicio02.php"><img src="doc/execute-icon.png" alt="Ejecutar"></a></td>
+                                <td><a href="./mostrarcodigo/muestraEjercicio02.php"><img src="doc/inspect-icon.png" alt="Inspeccionar"></a></td>
                             </tr>
                         </table>
                     </div>

@@ -1,31 +1,57 @@
 <?php
 /*
  * @author: Nacho del Prado Losada
- * @since: 25/11/2020
+ * @since: 30/11/2020
  * Ejercicio: 2.Desarrollo de un control de acceso con identificación del usuario basado en la función header() y en el uso de una tabla “Usuario” de la base de datos. (PDO).
  */
 
 //Llamada al fichero de almacenamiento de consantes en PDO
 require_once '../config/confDBPDO.php';
+$error = "";
 
-//Si el usuario no se ha identificado se piden las creedenciales
-if (!isset($_SERVER['PHP_AUTH_USER'])) {
-    header('WWW-Authenticate: Basic Realm="Contenido restringido"');
-    header('HTTP/1.0 401 Unauthorized');
-    echo "Usuario no reconocido!";
-    exit;
+//Comprobamos si se ha enviado el formulario
+if(isset($_REQUEST['enviar'])){
+    $usuario = $_REQUEST['usuario'];
+    $password = $_REQUEST['password'];
+    
+    
+    if($usuario == null || $password == null){
+        $error = "Debes introducir un usuario y una contraseña";
+    }
+    else{
+        try{
+            //Instanciar un objeto PDO y establecer la conexión con la base de datos
+            $miDB = new PDO(DSN, USER, PASSWORD);
+            //Establecer PDO::ERRMODE_EXCEPTION como valor del atributo PDO::ATTR_ERRMODE
+            $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            
+            //Almaceno la consulta a sql en una variable
+            $sql = "SELECT CodUsuario, Password FROM Usuario WHERE CodUsuario=:CodUsuario AND Password=:Password";
+            //Ejecuto la consulta
+            $consulta = $miDB->prepare($sql);
+            $consulta->bindParam(":CodUsuario", $usuario);
+
+            $passwordCodificado = hash("sha256", $usuario.$password);
+            $consulta->bindParam(":Password", $passwordCodificado);
+            $consulta->execute();
+
+            $registro = $consulta->fetchObject();
+            if($registro != null){
+                session_start();
+                $_SESSION['usuario'] = $usuario;
+                header("Location: programa.php");
+                exit;
+            }
+            else{
+                //Si las creedenciales no son válidas se vuelven a pedir
+                $error = "Usuario o contraseña incorrectos";
+            }
+        } catch (PDOException $pdoe){
+            echo "<p style='color: red'>ERROR: " . $pdoe->getMessage() . "</p>";
+        }
+        unset($miDB);
+    }
 }
-//Una vez se han introducido se comprueban con la base de datos
-else{
-    //Instanciar un objeto PDO y establecer la conexión con la base de datos
-    $miDB = new PDO(DSN, USER, PASSWORD);
-
-    //Establecer PDO::ERRMODE_EXCEPTION como valor del atributo PDO::ATTR_ERRMODE
-    $miDB->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-        //Almaceno la consulta a sql en una variable
-        $sql = "SELECT usuario FROM usuarios WHERE usuario={$_SERVER['PHP_AUTH_USER']} AND contrasena="
-    
 ?>
 
 <!DOCTYPE html>
@@ -34,17 +60,26 @@ else{
         <title>Ejercicios Tema 5</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
     </head>
     
     <body>
-        <?php
-        echo 'Nombre de usuario: '.$_SERVER['PHP_AUTH_USER']."<br>";
-        echo 'Contraseña: '.$_SERVER['PHP_AUTH_PW']."<br>";
-        ?>        
+        <form name="input" action="<?php $_SERVER['PHP_SELF']?>" method="post">
+            <fieldset>
+                <legend>Login</legend>
+                <div>
+                    <span style="color: red"><?php echo $error; ?></span>
+                </div>
+                
+                <div>
+                    <label for='usuario'>Usuario:</label><br/>
+                    <input type='text' id='usuario' name='usuario'/><br/>
+                
+                    <label for='password' >Contraseña:</label><br/>
+                    <input type='password' id="password" name='password'/><br/>
+                
+                    <input type='submit' name='enviar' value='Enviar' />
+                </div>
+            </fieldset>
+        </form>
     </body>
 </html>
-
-<?php
-}
-?>
